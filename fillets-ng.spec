@@ -20,7 +20,6 @@ BuildRequires: lua5.0-devel
 BuildRequires: libSDL-devel, libSDL_mixer-devel, libSDL_image-devel
 BuildRequires: libSDL_ttf-devel
 BuildRequires: fribidi-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Fish Fillets NG is strictly a puzzle game. The goal in every of the seventy
