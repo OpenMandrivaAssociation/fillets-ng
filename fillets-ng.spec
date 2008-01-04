@@ -42,17 +42,6 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
 # Menu entry
-mkdir -p $RPM_BUILD_ROOT/%{_menudir}
-cat > $RPM_BUILD_ROOT/%{_menudir}/%{name} << EOF
-?package(%{name}): \
-command="%{_gamesbindir}/fillets" \
-icon="%{name}.png" \
-section="More Applications/Games/Arcade" \
-title="Fish Fillets NG" \
-longtitle="Fish Fillets NG" \
-needs="x11"
-EOF
-
 install -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -84,7 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog INSTALL NEWS README TODO
 %{_gamesbindir}/fillets
 %{_mandir}/man6/*
-%{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
