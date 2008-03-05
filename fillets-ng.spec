@@ -1,23 +1,26 @@
 %define name fillets-ng
-%define version 0.7.3
-%define release %mkrel 2
+%define version 0.8.0
+%define release %mkrel 1
 
-%define dataversion 0.7.1
+%define dataversion 0.8.0
 
 Summary: Fish Fillets NG
-Name:    %{name}
+Name: %{name}
 Version: %{version}
 Release: %{release}
 License: GPL 
-Group:   Games/Arcade
-URL:     http://fillets.sourceforge.net/
-Source0: %{name}-%{version}.tar.bz2
+Group: Games/Arcade
+URL: http://fillets.sourceforge.net/
+Source0: http://downloads.sourceforge.net/fillets/%{name}-%{version}.tar.gz
 Source3: %{name}-48.png
 Source4: %{name}-32.png
 Source5: %{name}-16.png
 Requires: %{name}-data = %{dataversion}
-BuildRequires: lua5.0-devel
-BuildRequires: libSDL-devel, libSDL_mixer-devel, libSDL_image-devel
+Requires: soundwrapper
+BuildRequires: lua-devel
+BuildRequires: libSDL-devel
+BuildRequires: libSDL_mixer-devel
+BuildRequires: libSDL_image-devel
 BuildRequires: libSDL_ttf-devel
 BuildRequires: fribidi-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -31,10 +34,10 @@ game is accompanied by quiet, comforting music.
 
 %prep
 %setup -q
+perl -pi -e "s|-lualib ||" configure
 
 %build
-# Doesn't work without --with-lua, don't know why
-%configure2_5x --with-lua=/usr --bindir=%{_gamesbindir}
+%configure2_5x --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir}/%{name}
 %make
 
 %install
@@ -77,5 +80,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/applications/mandriva-%{name}.desktop
-
 
