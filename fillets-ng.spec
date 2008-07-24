@@ -1,6 +1,6 @@
 %define name fillets-ng
 %define version 0.8.0
-%define release %mkrel 1
+%define release %mkrel 3
 
 %define dataversion 0.8.0
 
