@@ -2,7 +2,7 @@
 %define version 0.8.1
 %define release %mkrel 1
 
-%define dataversion 0.8.0
+%define dataversion 0.8.1
 
 Summary: Fish Fillets NG
 Name: %{name}
