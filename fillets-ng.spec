@@ -1,6 +1,6 @@
 %define name fillets-ng
-%define version 0.8.0
-%define release %mkrel 3
+%define version 0.8.1
+%define release %mkrel 1
 
 %define dataversion 0.8.0
 
@@ -15,6 +15,7 @@ Source0: http://downloads.sourceforge.net/fillets/%{name}-%{version}.tar.gz
 Source3: %{name}-48.png
 Source4: %{name}-32.png
 Source5: %{name}-16.png
+Patch0: fillets-ng-0.8.1-newer-fribidi.patch
 Requires: %{name}-data = %{dataversion}
 Requires: soundwrapper
 BuildRequires: lua-devel
@@ -34,7 +35,7 @@ game is accompanied by quiet, comforting music.
 
 %prep
 %setup -q
-perl -pi -e "s|-lualib ||" configure
+%patch0 -p1
 
 %build
 %configure2_5x --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir}/%{name}
