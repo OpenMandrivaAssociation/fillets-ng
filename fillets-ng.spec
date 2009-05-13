@@ -1,6 +1,6 @@
 %define name fillets-ng
 %define version 0.8.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define dataversion 0.8.1
 
@@ -8,8 +8,8 @@ Summary: Fish Fillets NG
 Name: %{name}
 Version: %{version}
 Release: %{release}
-License: GPL 
-Group: Games/Arcade
+License: GPLv2+
+Group: Games/Puzzles
 URL: http://fillets.sourceforge.net/
 Source0: http://downloads.sourceforge.net/fillets/%{name}-%{version}.tar.gz
 Source3: %{name}-48.png
@@ -55,7 +55,7 @@ Exec=soundwrapper %_gamesbindir/fillets
 Icon=%{name}
 Terminal=false
 Type=Application
-Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
+Categories=Game;LogicGame;
 EOF
 
 # Icon installation
