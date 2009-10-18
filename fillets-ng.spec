@@ -1,8 +1,8 @@
 %define name fillets-ng
 %define version 0.9.2
-%define release %mkrel 1
+%define release %mkrel 2
 
-%define dataversion 0.9.0
+%define dataversion 0.9.2
 
 Summary: Fish Fillets NG
 Name: %{name}
