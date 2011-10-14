@@ -1,5 +1,5 @@
 %define name fillets-ng
-%define version 1.0.0
+%define version 1.0.1
 %define release %mkrel 1
 
 %define dataversion 1.0.0
@@ -16,7 +16,6 @@ Source3: %{name}-48.png
 Source4: %{name}-32.png
 Source5: %{name}-16.png
 Requires: %{name}-data = %{dataversion}
-Requires: soundwrapper
 BuildRequires: lua-devel
 BuildRequires: libSDL-devel
 BuildRequires: libSDL_mixer-devel
@@ -40,7 +39,7 @@ game is accompanied by quiet, comforting music.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 # Menu entry
@@ -49,7 +48,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Fish Fillets NG
 Comment=Fish Fillets NG puzzle game
-Exec=soundwrapper %_gamesbindir/fillets
+Exec= %{_gamesbindir}/fillets
 Icon=%{name}
 Terminal=false
 Type=Application
@@ -57,22 +56,12 @@ Categories=Game;LogicGame;
 EOF
 
 # Icon installation
-install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
-install -D -m 644 %{SOURCE4} $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-install -D -m 644 %{SOURCE5} $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
+install -D -m 644 %{SOURCE3} %{buildroot}%{_liconsdir}/%{name}.png
+install -D -m 644 %{SOURCE4} %{buildroot}%{_iconsdir}/%{name}.png
+install -D -m 644 %{SOURCE5} %{buildroot}%{_miconsdir}/%{name}.png
 
 %clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%update_menus
-%endif
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
