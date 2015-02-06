@@ -1,7 +1,7 @@
 Summary:	Fish Fillets NG
 Name:		fillets-ng
 Version:	1.0.1
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Games/Puzzles
 Url:		http://fillets.sourceforge.net/
