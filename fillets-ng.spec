@@ -4,7 +4,7 @@ Version:	1.0.1
 Release:	3
 License:	GPLv2+
 Group:		Games/Puzzles
-Url:		http://fillets.sourceforge.net/
+Url:		https://fillets.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/fillets/%{name}-%{version}.tar.gz
 Source3:	%{name}-48.png
 Source4:	%{name}-32.png
